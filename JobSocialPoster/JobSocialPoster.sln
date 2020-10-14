@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSocialPoster.Core", "JobSocialPoster.Core\JobSocialPoster.Core.csproj", "{0C7EDA7C-8D9C-4E02-AB1E-CF38FB48D02A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSocialPoster.Services", "JobSocialPoster.Services\JobSocialPoster.Services.csproj", "{8A421C78-DA18-403A-88E7-38CE26CBB066}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSocialPoster.DataAccess.SQL", "JobSocialPoster.DataAccess.SQL\JobSocialPoster.DataAccess.SQL.csproj", "{92D2F3E8-49AA-4F37-97C6-48D27EE58783}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSocialPoster.DataAccess.InMemory", "JobSocialPoster.DataAccess.InMemory\JobSocialPoster.DataAccess.InMemory.csproj", "{9EC39B43-C58E-4E09-AEFC-B3F6ACD84416}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSocialPoster.WebUI", "JobSocialPoster.WebUI\JobSocialPoster.WebUI.csproj", "{CFF0C050-2C4C-4323-B85B-6AE5A4A77F26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSocialPoster.WebUI.Tests", "JobSocialPoster.WebUI.Tests\JobSocialPoster.WebUI.Tests.csproj", "{0C8ABAFC-FC80-4BFD-A1CB-440CCD09D12A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C7EDA7C-8D9C-4E02-AB1E-CF38FB48D02A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C7EDA7C-8D9C-4E02-AB1E-CF38FB48D02A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C7EDA7C-8D9C-4E02-AB1E-CF38FB48D02A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C7EDA7C-8D9C-4E02-AB1E-CF38FB48D02A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A421C78-DA18-403A-88E7-38CE26CBB066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A421C78-DA18-403A-88E7-38CE26CBB066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A421C78-DA18-403A-88E7-38CE26CBB066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A421C78-DA18-403A-88E7-38CE26CBB066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D2F3E8-49AA-4F37-97C6-48D27EE58783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D2F3E8-49AA-4F37-97C6-48D27EE58783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D2F3E8-49AA-4F37-97C6-48D27EE58783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D2F3E8-49AA-4F37-97C6-48D27EE58783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EC39B43-C58E-4E09-AEFC-B3F6ACD84416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EC39B43-C58E-4E09-AEFC-B3F6ACD84416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EC39B43-C58E-4E09-AEFC-B3F6ACD84416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EC39B43-C58E-4E09-AEFC-B3F6ACD84416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF0C050-2C4C-4323-B85B-6AE5A4A77F26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF0C050-2C4C-4323-B85B-6AE5A4A77F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF0C050-2C4C-4323-B85B-6AE5A4A77F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF0C050-2C4C-4323-B85B-6AE5A4A77F26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C8ABAFC-FC80-4BFD-A1CB-440CCD09D12A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C8ABAFC-FC80-4BFD-A1CB-440CCD09D12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C8ABAFC-FC80-4BFD-A1CB-440CCD09D12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C8ABAFC-FC80-4BFD-A1CB-440CCD09D12A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8565284C-D346-4A63-878F-76B7C366BDD5}
+	EndGlobalSection
+EndGlobal
