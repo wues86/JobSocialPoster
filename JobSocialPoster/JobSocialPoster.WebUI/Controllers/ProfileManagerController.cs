@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using JobSocialPoster.Core.Models;
+using JobSocialPoster.Core.ViewModels;
 using JobSocialPoster.DataAccess.InMemory;
 
 
@@ -12,10 +13,12 @@ namespace JobSocialPoster.WebUI.Controllers
     public class ProfileManagerController : Controller
     {
         ProfileRepository context;
+        ProfileCategoryRepository profileCategories;
 
         public ProfileManagerController()
         {
             context = new ProfileRepository();
+            profileCategories = new ProfileCategoryRepository();
         }
 
         // GET: ProfileManager
@@ -28,8 +31,11 @@ namespace JobSocialPoster.WebUI.Controllers
 
         public ActionResult Create()
         {
-            Profile profile = new Profile();
-            return View(profile);
+            ProfileManagerViewModel viewModel = new ProfileManagerViewModel();
+
+            viewModel.Profile = new Profile();
+            viewModel.ProfileCategories = profileCategories.Collection();
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -58,7 +64,10 @@ namespace JobSocialPoster.WebUI.Controllers
             }
             else
             {
-                return View(profile);
+                ProfileManagerViewModel viewModel = new ProfileManagerViewModel();
+                viewModel.Profile = profile;
+                viewModel.ProfileCategories = profileCategories.Collection();
+                return View(viewModel);
             }
         }
 
