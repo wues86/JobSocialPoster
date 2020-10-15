@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfileCategoryManagerController.cs" />
     <Compile Include="Controllers\ProfileManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -240,6 +241,10 @@
     <Content Include="Views\ProfileManager\Create.cshtml" />
     <Content Include="Views\ProfileManager\Edit.cshtml" />
     <Content Include="Views\ProfileManager\Delete.cshtml" />
+    <Content Include="Views\ProfileCategoryManager\Index.cshtml" />
+    <Content Include="Views\ProfileCategoryManager\Create.cshtml" />
+    <Content Include="Views\ProfileCategoryManager\Edit.cshtml" />
+    <Content Include="Views\ProfileCategoryManager\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
