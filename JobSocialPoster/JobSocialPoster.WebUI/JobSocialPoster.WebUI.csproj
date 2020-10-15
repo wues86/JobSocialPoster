@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfileManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,6 +236,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ProfileManager\Index.cshtml" />
+    <Content Include="Views\ProfileManager\Create.cshtml" />
+    <Content Include="Views\ProfileManager\Edit.cshtml" />
+    <Content Include="Views\ProfileManager\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -251,6 +256,24 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JobSocialPoster.Core\JobSocialPoster.Core.csproj">
+      <Project>{0c7eda7c-8d9c-4e02-ab1e-cf38fb48d02a}</Project>
+      <Name>JobSocialPoster.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobSocialPoster.DataAccess.InMemory\JobSocialPoster.DataAccess.InMemory.csproj">
+      <Project>{9ec39b43-c58e-4e09-aefc-b3f6acd84416}</Project>
+      <Name>JobSocialPoster.DataAccess.InMemory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobSocialPoster.DataAccess.SQL\JobSocialPoster.DataAccess.SQL.csproj">
+      <Project>{92d2f3e8-49aa-4f37-97c6-48d27ee58783}</Project>
+      <Name>JobSocialPoster.DataAccess.SQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobSocialPoster.Services\JobSocialPoster.Services.csproj">
+      <Project>{8a421c78-da18-403a-88e7-38ce26cbb066}</Project>
+      <Name>JobSocialPoster.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
