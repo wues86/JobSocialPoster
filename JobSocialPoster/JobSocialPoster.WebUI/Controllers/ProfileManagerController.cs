@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -40,7 +41,7 @@ namespace JobSocialPoster.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Profile profile)
+        public ActionResult Create(Profile profile, HttpPostedFileBase file)
         {
             if (!ModelState.IsValid)
             {
@@ -48,6 +49,12 @@ namespace JobSocialPoster.WebUI.Controllers
             }
             else
             {
+
+                if (file != null)
+                {
+                    profile.File = profile.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Context//ImportFiles//") + profile.File);
+                }
                 context.Insert(profile);
                 context.Commit();
 
@@ -73,7 +80,7 @@ namespace JobSocialPoster.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Profile profile, string Id)
+        public ActionResult Edit(Profile profile, string Id, HttpPostedFileBase file)
         {
             Profile profileToEdit = context.Find(Id);
 
@@ -87,9 +94,14 @@ namespace JobSocialPoster.WebUI.Controllers
                 {
                     return View(profile);
                 }
+                
+                if (file != null)
+                {
+                    profileToEdit.File = file.FileName;
+                    file.SaveAs(Server.MapPath("//Content//ImportFiles//") + profileToEdit.File);
+                }
 
                 profileToEdit.Category = profile.Category;
-                profileToEdit.File = profile.File;
                 profileToEdit.ImportCsv = profile.ImportCsv;
                 profileToEdit.IsActive = profile.IsActive;
                 profileToEdit.IsSent = profile.IsSent;
