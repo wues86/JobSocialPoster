@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace JobSocialPoster.Core.Models
 {
-    public class Profile
+    public class Profile : BaseEntity
     {
-        [Key]
-        [DisplayName("Id profilu")]
-        public string Id { get; set; }
+
         [DisplayName("Nazwa profilu")]
         public string Name { get; set; }
         [DisplayName("Plik CSV do importu postów")]
@@ -32,11 +30,6 @@ namespace JobSocialPoster.Core.Models
         public bool ImportCsv { get; set; }
         [DisplayName("Kategoria profilu")]
         public string Category { get; set; }
-
-        public Profile()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
 
     }
 }

@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace JobSocialPoster.Core.Models
 {
-    public class ProfileCategory
+    public class ProfileCategory : BaseEntity
     {
-        public string Id { get; set; }
         public string Name { get; set; }
 
-        public ProfileCategory()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
     }
 }

@@ -10,11 +10,11 @@ namespace JobSocialPoster.WebUI.Controllers
 {
     public class ProfileCategoryManagerController : Controller
     {
-        ProfileCategoryRepository context;
+        InMemoryRepository<ProfileCategory> context;
 
         public ProfileCategoryManagerController()
         {
-            context = new ProfileCategoryRepository();
+            context = new InMemoryRepository<ProfileCategory>();
         }
 
         // GET: ProfileManager
