@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using JobSocialPoster.Core.Contracts;
 using JobSocialPoster.Core.Models;
 using JobSocialPoster.Core.ViewModels;
 using JobSocialPoster.DataAccess.InMemory;
@@ -12,13 +13,13 @@ namespace JobSocialPoster.WebUI.Controllers
 {
     public class ProfileManagerController : Controller
     {
-        InMemoryRepository<Profile> context;
-        InMemoryRepository<ProfileCategory> profileCategories;
+        IRepository<Profile> context;
+        IRepository<ProfileCategory> profileCategories;
 
-        public ProfileManagerController()
+        public ProfileManagerController(IRepository<Profile> profileContext, IRepository<ProfileCategory> profileCategoryContext)
         {
-            context = new InMemoryRepository<Profile>();
-            profileCategories = new InMemoryRepository<ProfileCategory>();
+            context = profileContext;
+            profileCategories = profileCategoryContext;
         }
 
         // GET: ProfileManager

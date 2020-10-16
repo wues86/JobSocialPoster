@@ -1,4 +1,5 @@
-﻿using JobSocialPoster.Core.Models;
+﻿using JobSocialPoster.Core.Contracts;
+using JobSocialPoster.Core.Models;
 using JobSocialPoster.DataAccess.InMemory;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace JobSocialPoster.WebUI.Controllers
 {
     public class ProfileCategoryManagerController : Controller
     {
-        InMemoryRepository<ProfileCategory> context;
+        IRepository<ProfileCategory> context;
 
-        public ProfileCategoryManagerController()
+        public ProfileCategoryManagerController(IRepository<ProfileCategory> context)
         {
-            context = new InMemoryRepository<ProfileCategory>();
+            this.context = context;
         }
 
         // GET: ProfileManager
