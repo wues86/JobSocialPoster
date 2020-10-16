@@ -1,6 +1,7 @@
 using JobSocialPoster.Core.Contracts;
 using JobSocialPoster.Core.Models;
 using JobSocialPoster.DataAccess.InMemory;
+using JobSocialPoster.DataAccess.SQL;
 using System;
 
 using Unity;
@@ -46,8 +47,8 @@ namespace JobSocialPoster.WebUI
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
 
-            container.RegisterType<IRepository<Profile>, InMemoryRepository<Profile>>();
-            container.RegisterType<IRepository<ProfileCategory>, InMemoryRepository<ProfileCategory>>();
+            container.RegisterType<IRepository<Profile>, SQLRepository<Profile>>();
+            container.RegisterType<IRepository<ProfileCategory>, SQLRepository<ProfileCategory>>();
         }
     }
 }
