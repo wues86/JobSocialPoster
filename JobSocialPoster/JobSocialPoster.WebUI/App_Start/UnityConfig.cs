@@ -49,6 +49,8 @@ namespace JobSocialPoster.WebUI
 
             container.RegisterType<IRepository<Profile>, SQLRepository<Profile>>();
             container.RegisterType<IRepository<ProfileCategory>, SQLRepository<ProfileCategory>>();
+            container.RegisterType<IRepository<Post>, SQLRepository<Post>>();
+            container.RegisterType<IRepository<PostCategory>, SQLRepository<PostCategory>>();
         }
     }
 }

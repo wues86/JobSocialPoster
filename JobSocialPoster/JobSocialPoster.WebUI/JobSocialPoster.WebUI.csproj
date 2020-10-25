@@ -197,6 +197,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PostCategoryManagerController.cs" />
+    <Compile Include="Controllers\PostManagerController.cs" />
     <Compile Include="Controllers\ProfileCategoryManagerController.cs" />
     <Compile Include="Controllers\ProfileManagerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -273,6 +275,14 @@
     <Content Include="Views\ProfileCategoryManager\Edit.cshtml" />
     <Content Include="Views\ProfileCategoryManager\Delete.cshtml" />
     <Content Include="Views\ProfileManager\Import.cshtml" />
+    <Content Include="Views\PostManager\Index.cshtml" />
+    <Content Include="Views\PostManager\Create.cshtml" />
+    <Content Include="Views\PostManager\Edit.cshtml" />
+    <Content Include="Views\PostManager\Delete.cshtml" />
+    <Content Include="Views\PostCategoryManager\Index.cshtml" />
+    <Content Include="Views\PostCategoryManager\Create.cshtml" />
+    <Content Include="Views\PostCategoryManager\Edit.cshtml" />
+    <Content Include="Views\PostCategoryManager\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

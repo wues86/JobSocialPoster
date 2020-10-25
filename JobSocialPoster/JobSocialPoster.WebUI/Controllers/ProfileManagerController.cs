@@ -101,7 +101,7 @@ namespace JobSocialPoster.WebUI.Controllers
                 var message = "Zaimportowaliśmy te posty: ";
                 foreach (var post in posts)
                 {
-                    message = message + "   |   " + post.postContent + "   |   " + post.postImg + "   |   ";
+                    message = message + "   |   " + post.PostContent + "   |   " + post.PostImg + "   |   ";
                 }
 
                 //var message = "1st:   "+posts.FirstOrDefault().postImg + "     and last:    " + posts.LastOrDefault().postImg;

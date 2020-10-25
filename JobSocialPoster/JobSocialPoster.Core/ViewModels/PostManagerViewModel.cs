@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace JobSocialPoster.Core.ViewModels
 {
-    public class ProfileManagerViewModel
+    public class PostManagerViewModel
     {
-        public Profile Profile { get; set; }
-        public IEnumerable<ProfileCategory> ProfileCategories { get; set; }
+        public Post Post { get; set; }
+        public IEnumerable<PostCategory> PostCategories { get; set; }
 
     }
 }

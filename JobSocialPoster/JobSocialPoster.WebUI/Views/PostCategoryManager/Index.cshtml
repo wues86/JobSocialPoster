@@ -1,4 +1,4 @@
-﻿@model IEnumerable<JobSocialPoster.Core.Models.ProfileCategory>
+﻿@model IEnumerable<JobSocialPoster.Core.Models.PostCategory>
 
 @{
     ViewBag.Title = "Index";
@@ -23,6 +23,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
