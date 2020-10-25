@@ -48,8 +48,8 @@ namespace JobSocialPoster.DataAccess.InMemory
         }
         public Profile Find(string Id)
         {
+            //Profile profile = profiles.Find(p => p.Id == Id);
             Profile profile = profiles.Find(p => p.Id == Id);
-
             if (profile != null)
             {
                 return profile;

@@ -5,7 +5,7 @@
 }
 
 <h2>Index</h2>
-
+@Html.Raw(ViewBag.message)
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -41,40 +41,42 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            <a id="import-file" href="~/Content/ImportFiles/@item.File">@Html.DisplayFor(modelItem => item.File)</a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SocialpilotId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsSent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Weight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Url)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImportCsv)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a id="import-file" href="~/Content/ImportFiles/@item.File">@Html.DisplayFor(modelItem => item.File)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialpilotId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsSent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImportCsv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Import", "Import", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

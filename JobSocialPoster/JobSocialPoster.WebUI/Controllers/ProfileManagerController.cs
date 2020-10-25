@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CsvHelper;
 using JobSocialPoster.Core.Contracts;
 using JobSocialPoster.Core.Models;
 using JobSocialPoster.Core.ViewModels;
@@ -24,9 +26,12 @@ namespace JobSocialPoster.WebUI.Controllers
         }
 
         // GET: ProfileManager
-        public ActionResult Index()
+        public ActionResult Index(string message)
         {
             List<Profile> profiles = context.Collection().ToList();
+            
+            ViewBag.message = Request.QueryString["message"];
+
             return View(profiles);
 
         }
@@ -38,6 +43,74 @@ namespace JobSocialPoster.WebUI.Controllers
             viewModel.Profile = new Profile();
             viewModel.ProfileCategories = profileCategories.Collection();
             return View(viewModel);
+        }
+
+        public ActionResult Import(string Id)
+        {
+            Profile profile = context.Find(Id);
+
+            if (profile == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                ProfileManagerViewModel viewModel = new ProfileManagerViewModel();
+                viewModel.Profile = profile;
+                viewModel.ProfileCategories = profileCategories.Collection();
+
+                if (profile.ImportCsv == false)
+                {
+                        //return RedirectToAction("ImportDenied");
+                        ViewBag.ImportCheck = "<h4 class=\"text-danger\">Automatyczny import jest wyłączony, czy mimo to chcesz kontynuować?</h4>";
+                        return View(viewModel);
+                }
+
+                return View(viewModel);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Import(Profile profile, string Id)
+        {
+            Profile profileToImport = context.Find(Id);
+
+            if (profileToImport == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View(profile);
+                }
+
+                profileToImport.ImportCsv = false;
+                profileToImport.SocialpilotId = profileToImport.File;
+                Console.WriteLine(profileToImport.File);
+                
+                IList<Post> posts;
+
+                var streamreader = new StreamReader(Server.MapPath("//Content//ImportFiles//") + profileToImport.File);
+                var reader = new CsvReader(streamreader, CultureInfo.InvariantCulture);
+                //reader=CsvReader.Configuration.HeaderValidated = null;
+                reader.Configuration.HeaderValidated = null;
+                posts = reader.GetRecords<Post>().ToList();
+
+                var message = "Zaimportowaliśmy te posty: ";
+                foreach (var post in posts)
+                {
+                    message = message + "   |   " + post.postContent + "   |   " + post.postImg + "   |   ";
+                }
+
+                //var message = "1st:   "+posts.FirstOrDefault().postImg + "     and last:    " + posts.LastOrDefault().postImg;
+                //posts.Add(new Post("Adik praca", "Dudik"));
+
+                context.Commit();
+                return RedirectToAction("Index", new { message });
+            }
+
         }
 
         [HttpPost]
@@ -53,7 +126,7 @@ namespace JobSocialPoster.WebUI.Controllers
                 if (file != null)
                 {
                     profile.File = profile.Id + Path.GetExtension(file.FileName);
-                    file.SaveAs(Server.MapPath("//Context//ImportFiles//") + profile.File);
+                    file.SaveAs(Server.MapPath("//Content//ImportFiles//") + profile.File);
                 }
                 context.Insert(profile);
                 context.Commit();
