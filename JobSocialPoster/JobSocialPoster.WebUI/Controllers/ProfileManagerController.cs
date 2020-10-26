@@ -18,11 +18,13 @@ namespace JobSocialPoster.WebUI.Controllers
     {
         IRepository<Profile> context;
         IRepository<ProfileCategory> profileCategories;
+        IRepository<Post> pcontext;
 
-        public ProfileManagerController(IRepository<Profile> profileContext, IRepository<ProfileCategory> profileCategoryContext)
+        public ProfileManagerController(IRepository<Profile> profileContext, IRepository<ProfileCategory> profileCategoryContext, IRepository<Post> postContext)
         {
             context = profileContext;
             profileCategories = profileCategoryContext;
+            pcontext = postContext;
         }
 
         // GET: ProfileManager
@@ -71,7 +73,7 @@ namespace JobSocialPoster.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Import(Profile profile, string Id)
+        public ActionResult Import(Profile profile, string Id, Post post)
         {
             Profile profileToImport = context.Find(Id);
 
@@ -94,19 +96,17 @@ namespace JobSocialPoster.WebUI.Controllers
 
                 var streamreader = new StreamReader(Server.MapPath("//Content//ImportFiles//") + profileToImport.File);
                 var reader = new CsvReader(streamreader, CultureInfo.InvariantCulture);
-                //reader=CsvReader.Configuration.HeaderValidated = null;
+
                 reader.Configuration.HeaderValidated = null;
                 posts = reader.GetRecords<Post>().ToList();
 
                 var message = "Zaimportowaliśmy te posty: ";
-                foreach (var post in posts)
+                foreach (var p in posts)
                 {
-                    message = message + "   |   " + post.PostContent + "   |   " + post.PostImg + "   |   ";
+                    pcontext.Insert(p);
                 }
 
-                //var message = "1st:   "+posts.FirstOrDefault().postImg + "     and last:    " + posts.LastOrDefault().postImg;
-                //posts.Add(new Post("Adik praca", "Dudik"));
-
+                pcontext.Commit();
                 context.Commit();
                 return RedirectToAction("Index", new { message });
             }
