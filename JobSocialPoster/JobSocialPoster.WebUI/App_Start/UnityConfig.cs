@@ -5,6 +5,7 @@ using JobSocialPoster.DataAccess.SQL;
 using System;
 
 using Unity;
+using Unity.Injection;
 
 namespace JobSocialPoster.WebUI
 {
@@ -51,6 +52,9 @@ namespace JobSocialPoster.WebUI
             container.RegisterType<IRepository<ProfileCategory>, SQLRepository<ProfileCategory>>();
             container.RegisterType<IRepository<Post>, SQLRepository<Post>>();
             container.RegisterType<IRepository<PostCategory>, SQLRepository<PostCategory>>();
+            container.RegisterType<Controllers.AccountController>(new InjectionConstructor());
+            container.RegisterType<Controllers.ManageController>(new InjectionConstructor());
+            //container.RegisterType<AccountController>(new InjectionConstructor());
         }
     }
 }

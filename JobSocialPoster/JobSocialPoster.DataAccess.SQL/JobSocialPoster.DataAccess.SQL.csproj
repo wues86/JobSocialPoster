@@ -72,6 +72,10 @@
     <Compile Include="Migrations\202010251332184_AddingPosts.designer.cs">
       <DependentUpon>202010251332184_AddingPosts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011131350292_AddingPostsNProfiles4.cs" />
+    <Compile Include="Migrations\202011131350292_AddingPostsNProfiles4.designer.cs">
+      <DependentUpon>202011131350292_AddingPostsNProfiles4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLRepository.cs" />
@@ -92,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010251332184_AddingPosts.resx">
       <DependentUpon>202010251332184_AddingPosts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131350292_AddingPostsNProfiles4.resx">
+      <DependentUpon>202011131350292_AddingPostsNProfiles4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

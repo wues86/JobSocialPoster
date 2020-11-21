@@ -204,6 +204,39 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010262234266_PostsToProfile.cs" />
+    <Compile Include="Migrations\202010262234266_PostsToProfile.designer.cs">
+      <DependentUpon>202010262234266_PostsToProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131217221_PostsProfiles.cs" />
+    <Compile Include="Migrations\202011131217221_PostsProfiles.designer.cs">
+      <DependentUpon>202011131217221_PostsProfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131244041_PostsProfiles1.cs" />
+    <Compile Include="Migrations\202011131244041_PostsProfiles1.designer.cs">
+      <DependentUpon>202011131244041_PostsProfiles1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131258280_PostsProfilesNew.cs" />
+    <Compile Include="Migrations\202011131258280_PostsProfilesNew.designer.cs">
+      <DependentUpon>202011131258280_PostsProfilesNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131302213_PostsProfilesNew2.cs" />
+    <Compile Include="Migrations\202011131302213_PostsProfilesNew2.designer.cs">
+      <DependentUpon>202011131302213_PostsProfilesNew2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131321373_AddingPosts.cs" />
+    <Compile Include="Migrations\202011131321373_AddingPosts.designer.cs">
+      <DependentUpon>202011131321373_AddingPosts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131339044_AddingPostsNProfiles.cs" />
+    <Compile Include="Migrations\202011131339044_AddingPostsNProfiles.designer.cs">
+      <DependentUpon>202011131339044_AddingPostsNProfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131341152_AddingPostsNProfiles2.cs" />
+    <Compile Include="Migrations\202011131341152_AddingPostsNProfiles2.designer.cs">
+      <DependentUpon>202011131341152_AddingPostsNProfiles2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -276,13 +309,17 @@
     <Content Include="Views\ProfileCategoryManager\Delete.cshtml" />
     <Content Include="Views\ProfileManager\Import.cshtml" />
     <Content Include="Views\PostManager\Index.cshtml" />
-    <Content Include="Views\PostManager\Create.cshtml" />
     <Content Include="Views\PostManager\Edit.cshtml" />
     <Content Include="Views\PostManager\Delete.cshtml" />
     <Content Include="Views\PostCategoryManager\Index.cshtml" />
     <Content Include="Views\PostCategoryManager\Create.cshtml" />
     <Content Include="Views\PostCategoryManager\Edit.cshtml" />
     <Content Include="Views\PostCategoryManager\Delete.cshtml" />
+    <Content Include="Views\PostManager\Create.cshtml" />
+    <Content Include="Views\PostManager\Export.cshtml" />
+    <Content Include="Views\PostManager\ExportAll.cshtml" />
+    <Content Include="Views\PostManager\DeleteInactivePosts.cshtml" />
+    <Content Include="Views\ProfileManager\ImportAllCsv.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -318,6 +355,32 @@
       <Project>{8a421c78-da18-403a-88e7-38ce26cbb066}</Project>
       <Name>JobSocialPoster.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202010262234266_PostsToProfile.resx">
+      <DependentUpon>202010262234266_PostsToProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131217221_PostsProfiles.resx">
+      <DependentUpon>202011131217221_PostsProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131244041_PostsProfiles1.resx">
+      <DependentUpon>202011131244041_PostsProfiles1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131258280_PostsProfilesNew.resx">
+      <DependentUpon>202011131258280_PostsProfilesNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131302213_PostsProfilesNew2.resx">
+      <DependentUpon>202011131302213_PostsProfilesNew2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131321373_AddingPosts.resx">
+      <DependentUpon>202011131321373_AddingPosts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131339044_AddingPostsNProfiles.resx">
+      <DependentUpon>202011131339044_AddingPostsNProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131341152_AddingPostsNProfiles2.resx">
+      <DependentUpon>202011131341152_AddingPostsNProfiles2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

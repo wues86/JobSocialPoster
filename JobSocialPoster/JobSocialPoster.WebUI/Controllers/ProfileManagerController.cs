@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -14,6 +14,7 @@ using JobSocialPoster.DataAccess.InMemory;
 
 namespace JobSocialPoster.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProfileManagerController : Controller
     {
         IRepository<Profile> context;
@@ -89,8 +90,6 @@ namespace JobSocialPoster.WebUI.Controllers
                 }
 
                 profileToImport.ImportCsv = false;
-                profileToImport.SocialpilotId = profileToImport.File;
-                Console.WriteLine(profileToImport.File);
                 
                 IList<Post> posts;
 
@@ -99,15 +98,74 @@ namespace JobSocialPoster.WebUI.Controllers
 
                 reader.Configuration.HeaderValidated = null;
                 posts = reader.GetRecords<Post>().ToList();
+                
 
-                var message = "Zaimportowaliśmy te posty: ";
                 foreach (var p in posts)
                 {
+                    p.Profile = profileToImport.Name;
                     pcontext.Insert(p);
                 }
 
                 pcontext.Commit();
                 context.Commit();
+
+                var message = "Posty zostały zaimportowane";
+                return RedirectToAction("Index", new { message });
+            }
+
+        }
+
+        public ActionResult ImportAllCsv()
+        {
+            List<Profile> profilesToImport = context.Collection().Where(p => (p.ImportCsv == true) && (p.IsActive == true)).ToList();
+
+            //ViewBag.message = Request.QueryString["message"];
+
+            return View(profilesToImport);
+
+        }
+
+        [HttpPost]
+        public ActionResult ImportAllCsv(Profile profile, string Id, Post post)
+        {
+            //Profile profileToImport = context.Find(Id);
+            List<Profile> profilesToImport = context.Collection().Where(p => (p.ImportCsv == true) && (p.IsActive == true)).ToList();
+            
+            if (profilesToImport == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View(profile);
+                }
+
+                foreach (var p in profilesToImport)
+                {
+                    p.ImportCsv = false;
+
+                    IList<Post> posts;
+
+                    var streamreader = new StreamReader(Server.MapPath("//Content//ImportFiles//") + p.File);
+                    var reader = new CsvReader(streamreader, CultureInfo.InvariantCulture);
+
+                    reader.Configuration.HeaderValidated = null;
+                    posts = reader.GetRecords<Post>().ToList();
+
+
+                    foreach (var pp in posts)
+                    {
+                        pp.Profile = p.Name;
+                        pcontext.Insert(pp);
+                    }
+                }
+
+                pcontext.Commit();
+                context.Commit();
+
+                var message = "Posty aktywnych profili zostały zaimportowane";
                 return RedirectToAction("Index", new { message });
             }
 
@@ -125,13 +183,16 @@ namespace JobSocialPoster.WebUI.Controllers
 
                 if (file != null)
                 {
-                    profile.File = profile.Id + Path.GetExtension(file.FileName);
+
+                    profile.File = file.FileName;
                     file.SaveAs(Server.MapPath("//Content//ImportFiles//") + profile.File);
+
                 }
                 context.Insert(profile);
                 context.Commit();
 
-                return RedirectToAction("Index");
+                var message = "Utworzono nowy profil" + profile.Name;
+                return RedirectToAction("Index", new { message });
             }
         }
 

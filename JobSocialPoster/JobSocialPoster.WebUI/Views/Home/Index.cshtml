@@ -1,31 +1,35 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Job Social Poster";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Job Social Poster</h1>
+    <p class="lead">
+        Aplikacja służąca do publikowania ogłoszeń rekrutacyjnych na portalach społecznościowych, integrująca portal ogłoszeniowy publikujący oferty pracy z portalami społecznościowymi. Aplikacja umożliwia automatyzację importu ogłoszeń rekrutacyjnych z plików CSV, dostosowanie ich treści do wymagań portali społecznościowych a następnie ich publikację z wykorzystaniem API serwisu <a href="https://socialpilot.com">socialpilot.com</a>.
+    </p>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
+    <div class="col-md-3">
+        <h2>Profile</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Zarządzaj profilami w portalach społecznościowych.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="/ProfileManager">Zarządzaj profilami &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="col-md-3">
+        <h2>Kategorie profili</h2>
+        <p>Zarządzaj kategoriami profili w portalach społecznościowych.</p>
+        <p><a class="btn btn-default" href="/ProfileCategoryManager">Zarządzaj kategoriami profili &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-3">
+        <h2>Posty</h2>
+        <p>Zarządzaj postami do publikacji w portalach społecznościowych.</p>
+        <p><a class="btn btn-default" href="/PostManager">Zarządzaj postami &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>Kategorie postów</h2>
+        <p>Zarządzaj kategoriami postów do publikacji w portalach społecznościowych.</p>
+        <p><a class="btn btn-default" href="/PostCategoryManager">Zarządzaj kategoriami postów &raquo;</a></p>
     </div>
 </div>

@@ -13,22 +13,22 @@ namespace JobSocialPoster.Core.Models
 
         [DisplayName("Nazwa profilu")]
         public string Name { get; set; }
-        [DisplayName("Plik CSV do importu postów")]
+        [DisplayName("Plik CSV")]
         public string  File { get; set; }
-        [DisplayName("Id profilu w SocialPilot")]
+        [DisplayName("Id w SocialPilot")]
         public string SocialpilotId { get; set; }
-        [DisplayName("Zakończono eksport postów?")]
+        [DisplayName("Zakończono eksport")]
         public bool IsSent { get; set; }
-        [DisplayName("Profil aktywny?")]
+        [DisplayName("Profil aktywny")]
         public bool IsActive { get; set; }
-        [DisplayName("Waga profilu")]
+        [DisplayName("Waga")]
         public int Weight { get; set; }
         [Url]
-        [DisplayName("Adres URL profilu")]
+        [DisplayName("Adres URL")]
         public string Url { get; set; }
-        [DisplayName("Importować posty z CSV?")]
+        [DisplayName("Import z CSV")]
         public bool ImportCsv { get; set; }
-        [DisplayName("Kategoria profilu")]
+        [DisplayName("Kategoria")]
         public string Category { get; set; }
 
     }

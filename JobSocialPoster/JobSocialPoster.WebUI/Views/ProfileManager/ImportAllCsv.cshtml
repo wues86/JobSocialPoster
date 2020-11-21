@@ -1,0 +1,90 @@
+﻿@model IEnumerable<JobSocialPoster.Core.Models.Profile>
+
+@{
+    ViewBag.Title = "ImportAllCsv";
+}
+
+<h2>ImportAllCsv</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Importuj posty" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.File)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SocialpilotId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsSent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImportCsv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.File)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialpilotId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsSent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                <a href="@Html.Raw(item.Url)">Zobacz profil &raquo;</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImportCsv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+        </tr>
+    }
+
+</table>

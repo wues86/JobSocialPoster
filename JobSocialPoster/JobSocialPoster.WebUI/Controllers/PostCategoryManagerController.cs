@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace JobSocialPoster.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PostCategoryManagerController : Controller
     {
         IRepository<PostCategory> context;

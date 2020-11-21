@@ -40,8 +40,12 @@ namespace JobSocialPoster.Core.Models
         [Optional]
         public string Category { get; set; }
 
+        [DisplayName("Profil")]
+        [Optional]
+        public string Profile { get; set; }
 
-        /*public Post(string postContent, string postImg)
+        /*
+        public Post(string postContent, string postImg)
         {
             this.postContent = postContent;
             this.postImg = postImg;
