@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<JobSocialPoster.Core.Models.Post>
 
 @{
-    ViewBag.Title = "ExportAll";
+    ViewBag.Title = "Eksportuj wszystkie aktywne posty";
 }
 
-<h2>ExportAll</h2>
+<h2>Eksportuj wszystkie aktywne posty</h2>
 
 @using (Html.BeginForm())
 {
@@ -24,19 +24,10 @@
                     @Html.DisplayNameFor(model => model.CreationTime)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.PostContent)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.PostImg)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Url)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.UrlShort)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Status)
@@ -56,19 +47,10 @@
                         @Html.DisplayFor(modelItem => item.CreationTime)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.PostContent)
                     </td>
                     <td>
                         <img class="img-thumbnail" src="@Html.Raw(item.PostImg)" />
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Url)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UrlShort)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Status)

@@ -28,16 +28,36 @@ namespace JobSocialPoster.WebUI.Controllers
             pcontext = postContext;
         }
 
-        // GET: ProfileManager
-        public ActionResult Index(string message)
+        
+        public ActionResult Index(string message, string sortOrder)
         {
-            List<Profile> profiles = context.Collection().ToList();
-            
+            List<Profile> profiles;
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.CategorySortParm = sortOrder == "category" ? "category_desc" : "category";
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    profiles = context.Collection().OrderByDescending(p => p.Name).ToList();
+                    break;
+                case "category":
+                    profiles = context.Collection().OrderBy(p => p.Category).ToList();
+                    break;
+                case "category_desc":
+                    profiles = context.Collection().OrderByDescending(p => p.Category).ToList();
+                    break;
+                default:
+                    profiles = context.Collection().ToList();
+                    break;
+            }
+
             ViewBag.message = Request.QueryString["message"];
 
             return View(profiles);
 
         }
+
 
         public ActionResult Create()
         {
@@ -238,7 +258,6 @@ namespace JobSocialPoster.WebUI.Controllers
                 profileToEdit.Category = profile.Category;
                 profileToEdit.ImportCsv = profile.ImportCsv;
                 profileToEdit.IsActive = profile.IsActive;
-                profileToEdit.IsSent = profile.IsSent;
                 profileToEdit.Name = profile.Name;
                 profileToEdit.SocialpilotId = profile.SocialpilotId;
                 profileToEdit.Url = profile.Url;

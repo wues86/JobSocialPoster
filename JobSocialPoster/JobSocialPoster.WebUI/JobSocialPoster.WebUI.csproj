@@ -236,6 +236,10 @@
     <Compile Include="Migrations\202011131341152_AddingPostsNProfiles2.designer.cs">
       <DependentUpon>202011131341152_AddingPostsNProfiles2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011210153412_RemoveProfileIsSent.cs" />
+    <Compile Include="Migrations\202011210153412_RemoveProfileIsSent.designer.cs">
+      <DependentUpon>202011210153412_RemoveProfileIsSent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -380,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011131341152_AddingPostsNProfiles2.resx">
       <DependentUpon>202011131341152_AddingPostsNProfiles2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011210153412_RemoveProfileIsSent.resx">
+      <DependentUpon>202011210153412_RemoveProfileIsSent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

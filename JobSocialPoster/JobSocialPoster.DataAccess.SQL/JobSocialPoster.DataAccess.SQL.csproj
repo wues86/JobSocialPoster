@@ -76,6 +76,14 @@
     <Compile Include="Migrations\202011131350292_AddingPostsNProfiles4.designer.cs">
       <DependentUpon>202011131350292_AddingPostsNProfiles4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011210154347_RemoveProfileIsSent2.cs" />
+    <Compile Include="Migrations\202011210154347_RemoveProfileIsSent2.designer.cs">
+      <DependentUpon>202011210154347_RemoveProfileIsSent2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011210251031_RemovePostElements.cs" />
+    <Compile Include="Migrations\202011210251031_RemovePostElements.designer.cs">
+      <DependentUpon>202011210251031_RemovePostElements.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLRepository.cs" />
@@ -99,6 +107,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011131350292_AddingPostsNProfiles4.resx">
       <DependentUpon>202011131350292_AddingPostsNProfiles4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011210154347_RemoveProfileIsSent2.resx">
+      <DependentUpon>202011210154347_RemoveProfileIsSent2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011210251031_RemovePostElements.resx">
+      <DependentUpon>202011210251031_RemovePostElements.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,10 +1,10 @@
 ﻿@model JobSocialPoster.Core.ViewModels.PostManagerViewModel
 
 @{
-    ViewBag.Title = "Export";
+    ViewBag.Title = "Eksportuj post";
 }
 
-<h2>Export</h2>
+<h2>Eksportuj post</h2>
 @Html.Raw(ViewBag.ImportCheck)
 
 @using (Html.BeginForm())
@@ -12,19 +12,10 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Post</h4>
     <hr />
     
 
     <dl class="dl-horizontal">
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post.Title)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Post.PostContent)
@@ -40,22 +31,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Post.PostImg)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post.Url)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post.Url)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post.UrlShort)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post.UrlShort)
         </dd>
 
         <dt>
@@ -86,14 +61,14 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Eksportuj" class="btn btn-default" />
         </div>
     </div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Powrót", "Index")
 </div>
 
 @section Scripts {

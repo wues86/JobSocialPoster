@@ -2,3 +2,31 @@ PostContent,PostImg
 " ⚡ ⚡ ⚡ #francja #ofertapracy Frezer konwencjonalny(manualny) Lille ⚡ ⚡ ⚡ Przeczytaj pełną ofertę pracy na witrynie: https://oferty-pracy.work/o/francja/frezer-konwencjonalnymanualny-lille-527560?utm_source=PG-EU-02&utm_medium=post&utm_campaign=fejs",https://c3.staticflickr.com/5/4152/5089610330_20505ee77b_b.jpg
 " ⤵ ⤵ ⤵ #wielkabrytania #oferta Warehouse Operative ⤵ ⤵ ⤵ Przeczytaj pełną ofertę pracy na stronie: https://oferty-pracy.work/o/wielka-brytania/warehouse-operative-40-527270?utm_source=PG-EU-02&utm_medium=post&utm_campaign=fejs",https://c8.staticflickr.com/8/7427/13997718935_ea3b162833_h.jpg
 " ✋ ✋ ✋ #praca #belgia Monter okien i drzwi ✋ ✋ ✋ Sprawdź całą ofertę zatrudnienia na: https://oferty-pracy.work/o/belgia/monter-okien-i-drzwi-16-527865?utm_source=PG-EU-02&utm_medium=post&utm_campaign=fejs",https://c1.staticflickr.com/7/6128/6032138651_19ff79795e_b.jpg
+
+
+Pass+123
+
+Todo:
+Import CSV ze wszystkich profili
+Aktywacja importu CSV dla wszystkich profili
+Zarządzanie API
+Zarządzanie użytkownikami
+
+Użytkownik ma dostęp do importu ale nie edycji i usuwania
+
+
+				client.Headers.Add("x-api-key", "Kdih7tPvzX9X34SyPk7725XlmPTP2HFW3S1iK07U");
+                client.Headers.Add("xclientid", "4iiuhbeyvlz2nuox3898obdwn3j3p3sumbo3m31h");
+                client.Headers.Add("xclientsecret", "ce8ch08wgdyrxcftf2ag0pbrx741c7doll03m9z2");
+                var email = "hello@wojtekskulski.pl";
+                var password = "Passhaslo*123";
+
+
+
+
+
+                client.Headers.Add("x-api-key", "123");
+                client.Headers.Add("xclientid", "123");
+                client.Headers.Add("xclientsecret", "123");
+                var email = "123";
+                var password = "123";

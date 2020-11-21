@@ -8,7 +8,7 @@
 @Html.Raw(ViewBag.message)
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Utwórz nowy post", "Create")
 </p>
 <table class="table">
     <tr>
@@ -16,19 +16,10 @@
             @Html.DisplayNameFor(model => model.CreationTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.PostContent)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PostImg)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Url)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UrlShort)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Status)
@@ -49,20 +40,10 @@
                 @Html.DisplayFor(modelItem => item.CreationTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.PostContent)
             </td>
             <td>
                 <img class="img-thumbnail" src="@Html.Raw(item.PostImg)" />
-
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Url)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UrlShort)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
@@ -75,7 +56,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edycja", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Export", "Export", new { id = item.Id }) |
+                @Html.ActionLink("Eksport", "Export", new { id = item.Id }) |
                 @Html.ActionLink("Usuń", "Delete", new { id = item.Id })
             </td>
         </tr>

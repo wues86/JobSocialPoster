@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<JobSocialPoster.Core.Models.ProfileCategory>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Kategorie profili";
 }
 
-<h2>Index</h2>
+<h2>Kategorie profili</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Utwórz nową kategorię", "Create")
 </p>
 <table class="table">
     <tr>
@@ -24,8 +24,8 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edycja", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

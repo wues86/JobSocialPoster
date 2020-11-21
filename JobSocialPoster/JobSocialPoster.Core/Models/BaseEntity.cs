@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ namespace JobSocialPoster.Core.Models
     {
         [Optional]
         public string Id { get; set; }
+
+        [DisplayName("Utworzono")]
         [Optional]
         public DateTimeOffset CreationTime { get; set; }
 

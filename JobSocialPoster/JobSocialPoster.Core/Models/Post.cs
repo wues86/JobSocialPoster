@@ -11,26 +11,12 @@ namespace JobSocialPoster.Core.Models
 {
     public class Post : BaseEntity
     {
-        [DisplayName("Tytuł posta")]
-        [Optional]
-        public string Title { get; set; }
-
         [DisplayName("Treść posta")]
         public string PostContent { get; set; }
 
         [DisplayName("Adres obrazka")]
         [Url]
         public string PostImg { get; set; }
-
-        [DisplayName("Link")]
-        [Optional]
-        [Url]
-        public string Url { get; set; }
-
-        [DisplayName("Link skrócony")]
-        [Optional]
-        [Url]
-        public string UrlShort { get; set; }
 
         [DisplayName("Status")]
         [Optional]
@@ -43,13 +29,6 @@ namespace JobSocialPoster.Core.Models
         [DisplayName("Profil")]
         [Optional]
         public string Profile { get; set; }
-
-        /*
-        public Post(string postContent, string postImg)
-        {
-            this.postContent = postContent;
-            this.postImg = postImg;
-        }*/
 
     }
 }

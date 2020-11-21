@@ -17,8 +17,6 @@ namespace JobSocialPoster.Core.Models
         public string  File { get; set; }
         [DisplayName("Id w SocialPilot")]
         public string SocialpilotId { get; set; }
-        [DisplayName("Zakończono eksport")]
-        public bool IsSent { get; set; }
         [DisplayName("Profil aktywny")]
         public bool IsActive { get; set; }
         [DisplayName("Waga")]

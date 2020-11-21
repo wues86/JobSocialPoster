@@ -116,7 +116,6 @@ namespace JobSocialPoster.WebUI.Controllers
         {
             List<Post> postsToExport = context.Collection().Where(p => p.Status == false).ToList();
 
-
             if (postsToExport == null)
             {
                 return HttpNotFound();
@@ -155,13 +154,21 @@ namespace JobSocialPoster.WebUI.Controllers
                 {
                     p.Status = true;
 
-                    
+                    List<Profile> profiles = pcontext.Collection().Where(pp => pp.Name == p.Profile).ToList();
+                    var SocialPilotId = "";
+
+                    foreach (var pp in profiles)
+                    {
+                        SocialPilotId = pp.SocialpilotId;
+                    }
+
+
                     response = client.UploadString("https://rest.socialpilot.co/v2/uploadmedia", "{\"mediaType\": \"IMAGE\",\"media\": [{\"url\": \"" + p.PostImg + "\",\"thumbnail\": \"" + p.PostImg + "\"}]}");
                     details = JObject.Parse(response);
                     var id3 = details["message"].ToString();
                     var id4 = details["response"]["mediaIds"][0]["mediaId"].ToString();
 
-                    response = client.UploadString("https://rest.socialpilot.co/v2/posts/create", "{\"loginIds\":[634552],\"shareType\":0,\"posts\":[{\"postDesc\":\"" + p.PostContent + "\",\"postTitle\":\"" + p.Id + "\",\"mediaId\":[\"" + id4 + "\"],\"type\":\"facebook\"}]}");
+                    response = client.UploadString("https://rest.socialpilot.co/v2/posts/create", "{\"loginIds\":[" + SocialPilotId + "],\"shareType\":0,\"posts\":[{\"postDesc\":\"" + p.PostContent + "\",\"postTitle\":\"" + p.Id + "\",\"mediaId\":[\"" + id4 + "\"],\"type\":\"facebook\"}]}");
                     details = JObject.Parse(response);
 
                     var id5 = details["message"].ToString();
@@ -213,7 +220,7 @@ namespace JobSocialPoster.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Export(Post post, string Id)
+        public ActionResult Export(Post post, string Id, Profile profile)
         {
             Post postToExport = context.Find(Id);
 
@@ -228,8 +235,14 @@ namespace JobSocialPoster.WebUI.Controllers
                     return View(post);
                 }
 
-                postToExport.Status = true;
+                List<Profile> profiles = pcontext.Collection().Where(p => p.Name == postToExport.Profile).ToList();
+                var SocialPilotId = "";
+                foreach (var p in profiles)
+                {
+                    SocialPilotId = p.SocialpilotId;
+                }
 
+                postToExport.Status = true;
 
                 WebClient client = new WebClient();
 
@@ -254,7 +267,7 @@ namespace JobSocialPoster.WebUI.Controllers
                 var id4 = details["response"]["mediaIds"][0]["mediaId"].ToString();
 
 
-                response = client.UploadString("https://rest.socialpilot.co/v2/posts/create", "{\"loginIds\":[634552],\"shareType\":0,\"posts\":[{\"postDesc\":\"" + postToExport.PostContent + "\",\"postTitle\":\"" + postToExport.Id + "\",\"mediaId\":[\"" + id4 + "\"],\"type\":\"facebook\"}]}");
+                response = client.UploadString("https://rest.socialpilot.co/v2/posts/create", "{\"loginIds\":[" + SocialPilotId + "],\"shareType\":0,\"posts\":[{\"postDesc\":\"" + postToExport.PostContent + "\",\"postTitle\":\"" + postToExport.Id + "\",\"mediaId\":[\"" + id4 + "\"],\"type\":\"facebook\"}]}");
                 details = JObject.Parse(response);
 
                 var id5 = details["message"].ToString();
@@ -332,11 +345,8 @@ namespace JobSocialPoster.WebUI.Controllers
                     return View(post);
                 }
 
-                postToEdit.Title = post.Title;
                 postToEdit.PostContent = post.PostContent;
                 postToEdit.PostImg = post.PostImg;
-                postToEdit.Url = post.Url;
-                postToEdit.UrlShort = post.UrlShort;
                 postToEdit.Status = post.Status;
                 postToEdit.Category = post.Category;
                 postToEdit.Profile = post.Profile;
