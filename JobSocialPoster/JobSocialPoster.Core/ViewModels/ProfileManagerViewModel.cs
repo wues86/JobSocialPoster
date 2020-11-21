@@ -11,5 +11,6 @@ namespace JobSocialPoster.Core.ViewModels
     {
         public Profile Profile { get; set; }
         public IEnumerable<ProfileCategory> ProfileCategories { get; set; }
+
     }
 }

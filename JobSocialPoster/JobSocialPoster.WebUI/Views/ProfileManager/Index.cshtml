@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<JobSocialPoster.Core.Models.Profile>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Zarządzaj profilami";
 }
 
-<h2>Index</h2>
+<h2>Zarządzaj profilami</h2>
 @Html.Raw(ViewBag.message)
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj nowy profil", "Create")
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -63,7 +64,7 @@
                 @Html.DisplayFor(modelItem => item.Weight)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Url)
+                <a href="@Html.Raw(item.Url)">Zobacz profil &raquo;</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ImportCsv)
@@ -72,9 +73,9 @@
                 @Html.DisplayFor(modelItem => item.Category)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Edycja", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Import", "Import", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Usuń", "Delete", new { id = item.Id })
             </td>
         </tr>
     }

@@ -13,33 +13,39 @@ namespace JobSocialPoster.Core.Models
     {
         [DisplayName("Tytuł posta")]
         [Optional]
-        public string title { get; set; }
+        public string Title { get; set; }
 
         [DisplayName("Treść posta")]
-        public string postContent { get; set; }
+        public string PostContent { get; set; }
 
         [DisplayName("Adres obrazka")]
         [Url]
-        public string postImg { get; set; }
+        public string PostImg { get; set; }
 
         [DisplayName("Link")]
         [Optional]
         [Url]
-        public string url { get; set; }
+        public string Url { get; set; }
 
         [DisplayName("Link skrócony")]
         [Optional]
         [Url]
-        public string urlShort { get; set; }
+        public string UrlShort { get; set; }
 
         [DisplayName("Status")]
         [Optional]
-        public bool status { get; set; }
+        public bool Status { get; set; }
 
+        [DisplayName("Kategoria")]
+        [Optional]
+        public string Category { get; set; }
 
+        [DisplayName("Profil")]
+        [Optional]
+        public string Profile { get; set; }
 
-
-        /*public Post(string postContent, string postImg)
+        /*
+        public Post(string postContent, string postImg)
         {
             this.postContent = postContent;
             this.postImg = postImg;
